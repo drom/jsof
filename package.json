@@ -1,0 +1,31 @@
+{
+  "name": "jsof",
+  "version": "0.0.1",
+  "description": "liberal JSON",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "eslint lib/*.js ; ./node_modules/.bin/mocha test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/drom/jsonto.git"
+  },
+  "keywords": [
+    "JSON"
+  ],
+  "author": "alex.drom@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/drom/jsonto/issues"
+  },
+  "homepage": "https://github.com/drom/jsonto#readme",
+  "devDependencies": {
+    "chai": "^3.2.0",
+    "eslint": "^1.1.0",
+    "mocha": "^2.2.5"
+  },
+  "dependencies": {
+    "esprima": "^2.5.0",
+    "estraverse": "^4.1.0"
+  }
+}
