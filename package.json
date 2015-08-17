@@ -1,6 +1,6 @@
 {
   "name": "jsof",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "liberal JSON",
   "main": "lib/index.js",
   "scripts": {
@@ -25,7 +25,6 @@
     "mocha": "^2.2.5"
   },
   "dependencies": {
-    "esprima": "^2.5.0",
-    "estraverse": "^4.1.0"
+    "esprima": "^2.5.0"
   }
 }

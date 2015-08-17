@@ -13,7 +13,7 @@ var data = {
         dst: 'some string'
     },
     object: {
-        src: '{ key1:"value1", /* some \n comment */ key2: 1234, }',
+        src: '{ key1:"value1", /* some \n comment */ "key2": 1234, }',
         dst: { key1: 'value1', key2: 1234 }
     },
     array: {
