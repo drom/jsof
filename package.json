@@ -1,14 +1,14 @@
 {
   "name": "jsof",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "liberal JSON",
   "main": "lib/index.js",
   "scripts": {
-    "test": "eslint lib/*.js ; ./node_modules/.bin/mocha test"
+    "test": "eslint lib/*.js ; istanbul cover _mocha"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/drom/jsonto.git"
+    "url": "git+https://github.com/drom/jsof.git"
   },
   "keywords": [
     "JSON"
@@ -16,15 +16,17 @@
   "author": "alex.drom@gmail.com",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/drom/jsonto/issues"
+    "url": "https://github.com/drom/jsof/issues"
   },
-  "homepage": "https://github.com/drom/jsonto#readme",
+  "homepage": "https://github.com/drom/jsof#readme",
   "devDependencies": {
-    "chai": "^3.2.0",
-    "eslint": "^1.1.0",
-    "mocha": "^2.2.5"
+    "chai": "^3.2",
+    "eslint": "^1.1",
+    "istanbul": "^0.3",
+    "mocha": "^2.2"
   },
   "dependencies": {
-    "esprima": "^2.5.0"
+    "escodegen": "^1.6",
+    "esprima": "^2.5"
   }
 }
