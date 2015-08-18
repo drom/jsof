@@ -11,8 +11,8 @@ var data = {
     number :    { src: 3.1415, dst: '3.1415' },
     string:     { src: 'some string', dst: '\'some string\'' },
     object: {
-        src: { key1: 'value1', key2: 1234 },
-        dst: '{\n  key1: \'value1\',\n  key2: 1234\n}'
+        src: { Key_1: 'value1', 'key 2': 1234 },
+        dst: '{\n  Key_1: \'value1\',\n  \'key 2\': 1234\n}'
     },
     array: {
         src: [123, 456, null],
