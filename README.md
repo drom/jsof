@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/drom/jsof.svg?branch=master)](https://travis-ci.org/drom/jsof)
+[![NPM version](https://img.shields.io/npm/v/jsof.svg)](https://www.npmjs.org/package/jsof)
+
 # JSOF
 liberal JSON
 
