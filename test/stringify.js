@@ -12,11 +12,11 @@ var data = {
     string:     { src: 'some string', dst: '\'some string\'' },
     object: {
         src: { key1: 'value1', key2: 1234 },
-        dst: '{ key1: \'value1\', key2: 1234 }'
+        dst: '{\n  key1: \'value1\',\n  key2: 1234\n}'
     },
     array: {
         src: [123, 456, null],
-        dst: '[ 123, 456, null ]'
+        dst: '[\n  123,\n  456,\n  null\n]'
     },
     'function': {
         src: function fn(a, b) {
