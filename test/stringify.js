@@ -29,8 +29,14 @@ var data = {
 describe('#stringify', function () {
     Object.keys(data).forEach(function (source) {
         it(source, function (done) {
-            var res = jsof.stringify(data[source].src);
+            var res;
+
+            res = jsof.stringify(data[source].src);
             expect(res).to.deep.equal(data[source].dst);
+
+            res = jsof.shift.stringify(data[source].src);
+            expect(res).to.deep.equal(data[source].dst);
+
             done();
         });
     });

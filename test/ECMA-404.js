@@ -11,6 +11,12 @@ function parser (text) {
     };
 }
 
+function _parser (text) {
+    return function () {
+        return jsof.shift.parse(text);
+    };
+}
+
 fs.readdir(
     path.resolve(__dirname, './parse-pass/'),
     function (err0, jsonFiles) {
@@ -25,6 +31,7 @@ fs.readdir(
                             if (err1) { throw err1; }
                             var orig = JSON.parse(text);
                             expect(jsof.parse(text)).to.deep.equal(orig);
+                            expect(jsof.shift.parse(text)).to.deep.equal(orig);
                             done();
                         }
                     );
@@ -51,7 +58,9 @@ fs.readdir(
                                 eval('orig = ' + text);
                                 expect(jsof.parse(text)).to.deep.equal(orig);
                             } else {
-                                expect(jsof.parse(text)).to.be.ok;
+                                var res1 = jsof.parse(text);
+                                var res2 = jsof.shift.parse(text);
+                                expect(res1).to.deep.equal(res2);
                             }
                             done();
                         }
@@ -75,6 +84,7 @@ fs.readdir(
                         function (err1, text) {
                             if (err1) { throw err1; }
                             expect(parser(text)).to.throw();
+                            expect(_parser(text)).to.throw();
                             done();
                         }
                     );

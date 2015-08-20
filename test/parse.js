@@ -20,11 +20,11 @@ var data = {
     },
     'function': {
         src: 'function (a, /* comment */ b) { return b + c }',
-        dst: '${function (a, b) {\n    return b + c;\n}}'
+        dst: '${function(a,b){return b+c}}'
     },
     expressions: {
         src: '[~a, a+b, a++, --a, ,a(), a.b, a.b.c.d]',
-        dst: ['${~a}', '${a + b}', '${a++}', '${--a}', null, '${a()}', '${a.b}', '${a.b.c.d}']
+        dst: ['${~a}', '${a+b}', '${a++}', '${--a}', null, '${a()}', '${a.b}', '${a.b.c.d}']
     }
 };
 
@@ -32,6 +32,16 @@ describe('#parse', function () {
     Object.keys(data).forEach(function (source) {
         it(source, function (done) {
             var res = jsof.parse(data[source].src);
+            expect(res).to.deep.equal(data[source].dst);
+            done();
+        });
+    });
+});
+
+describe('#shift.parse', function () {
+    Object.keys(data).forEach(function (source) {
+        it(source, function (done) {
+            var res = jsof.shift.parse(data[source].src);
             expect(res).to.deep.equal(data[source].dst);
             done();
         });

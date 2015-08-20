@@ -1,6 +1,6 @@
 {
   "name": "jsof",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "liberal JSON",
   "main": "lib/index.js",
   "scripts": {
@@ -27,6 +27,8 @@
   },
   "dependencies": {
     "escodegen": "^1.6",
-    "esprima": "^2.5"
+    "esprima": "^2.5",
+    "shift-codegen": "^3.0",
+    "shift-parser": "^3.0"
   }
 }
