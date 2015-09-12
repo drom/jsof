@@ -21,14 +21,14 @@
   "homepage": "https://github.com/drom/jsof#readme",
   "devDependencies": {
     "chai": "^3.2.0",
-    "eslint": "^1.1.0",
-    "istanbul": "^0.3.17",
-    "mocha": "^2.2.5"
+    "eslint": "^1.4.1",
+    "istanbul": "^0.3.19",
+    "mocha": "^2.3.2"
   },
   "dependencies": {
-    "escodegen": "^1.6.1",
-    "esprima": "^2.5.0",
+    "escodegen": "^1.7.0",
+    "esprima": "^2.6.0",
     "shift-codegen": "^3.0.0",
-    "shift-parser": "^3.0.1"
+    "shift-parser": "^3.0.5"
   }
 }
