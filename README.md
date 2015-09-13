@@ -3,6 +3,17 @@
 
 Uses `esprima, escodegen` or `shift-{parser, codegen}` to parse and stringify an JavaScript values.
 
+## Use
+### Node.js
+
+```
+npm i jsof --save
+```
+
+```js
+var jsof = require('jsof');
+```
+
 ## API
 ### jsof.parse()
 The `jsof.parse()` method parses a JS value string and returns a JavaScript value. Passes all 3 JSON **pass** tests. Also passes 18 of 33 JSON **fail** tests.
