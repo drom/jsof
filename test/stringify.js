@@ -22,7 +22,7 @@ var data = {
         src: function fn(a, b) {
             return b + c;
         },
-        dst: 'function fn(a, b) {\n            return b + c;\n        }'
+        dst: '\'function fn(a, b) {\n            return b + c;\n        }\''
     }
 };
 
@@ -31,10 +31,10 @@ describe('#stringify', function () {
         it(source, function (done) {
             var res;
 
-            res = jsof.stringify(data[source].src);
+            res = jsof.stringify(data[source].src, {nocolor: true});
             expect(res).to.deep.equal(data[source].dst);
 
-            res = jsof.shift.stringify(data[source].src);
+            res = jsof.shift.stringify(data[source].src, {nocolor: true});
             expect(res).to.deep.equal(data[source].dst);
 
             done();
