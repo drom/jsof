@@ -21,8 +21,8 @@
   "homepage": "https://github.com/drom/jsof#readme",
   "devDependencies": {
     "chai": "^3.2.0",
-    "eslint": "^1.4.1",
-    "istanbul": "^0.3.19",
+    "eslint": "^1.5.0",
+    "istanbul": "^0.3.20",
     "mocha": "^2.3.2"
   },
   "dependencies": {
