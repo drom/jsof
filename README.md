@@ -5,6 +5,8 @@ Uses `esprima, escodegen` or `shift-{parser, codegen}` to parse and stringify an
 
 ## Why?
 
+### Reason 1
+
 Remember, you wrote something like the text below and `JSON.parse()` reported ~30 issues?
 
 ```js
