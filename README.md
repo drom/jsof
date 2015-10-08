@@ -9,7 +9,7 @@ Uses `esprima, escodegen` or `shift-{parser, codegen}` to parse and stringify an
 
 Do you think, that JSON is a bit verbose? restrictive? hard to comment?
 
-Remember, you wrote something like the text below and `JSON.parse()` reported ~30 issues?
+Remember, you wrote something like the text below,  gave it to `JSON.parse()` and got 30 errors? one by one?
 
 ```js
 {
@@ -37,6 +37,10 @@ Remember, you wrote something like the text below and `JSON.parse()` reported ~3
 }
 ```
 So, now you can use `jsof.parse()`, and everything is fine!
+
+### Reason 2
+
+
 
 ## Use
 ### Node.js
