@@ -16,19 +16,23 @@ var jsof = require('jsof');
 
 ## API
 ### jsof.parse()
+### jsof.p()
 The `jsof.parse()` method parses a JS value string and returns a JavaScript value. Passes all 3 JSON **pass** tests. Also passes 18 of 33 JSON **fail** tests.
 
 `value = jsof.parse(text)`
 
 ### jsof.stringify()
+### jsof.s()
 The `jsof.stringify()` method converts a JavaScript value to a JS string.
 
 `text = jsof.stringify(value)`
 
 ### jsof.shift.parse()
+### jsof.shift.p()
 The same as `jsof.parse()` but using `shift-*` tools.
 
 ### jsof.shift.stringify()
+### jsof.shift.s()
 The same as `jsof.stringify()` but using `shift-*` tools.
 
 ## Testing
