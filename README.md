@@ -8,6 +8,7 @@ Uses `esprima, escodegen` or `shift-{parser, codegen}` to parse and stringify an
 ### Reason 1
 
 Do you think, that JSON is a bit verbose? restrictive? hard to comment?
+
 Remember, you wrote something like the text below and `JSON.parse()` reported ~30 issues?
 
 ```js
