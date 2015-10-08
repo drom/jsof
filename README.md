@@ -11,7 +11,7 @@ Do you think, that JSON is a bit verbose? restrictive? hard to comment?
 
 Remember, you wrote something like the text below,  gave it to `JSON.parse()` and got 30 errors? one by one?
 
-```js
+```json
 {
     unquoted_key: "keys must be quoted",
     a1: ["extra comma",],
@@ -40,6 +40,41 @@ So, now you can use `jsof.parse()`, and everything is fine!
 
 ### Reason 2
 
+`JSON.stringify(obj, null, 2);`
+
+```json
+{
+  "a": [
+    {"b": [
+      [
+        "string"
+      ]
+    ]}
+  ],
+  "c": 42
+}
+```
+
+`jsof.stringify(obj);`
+
+```js
+{
+  a: [{b: 'string'}],
+  c: 42
+}
+```
+
+### Reason 3
+
+colors
+
+### Reason 4
+
+References
+
+### Reason 5
+
+no `eval()`
 
 
 ## Use
