@@ -4,9 +4,7 @@
 Uses `esprima, escodegen` or `shift-{parser, codegen}` to parse and stringify an JavaScript values.
 
 ## Why?
-
 ### Reason 1
-
 Do you think, that JSON is a bit verbose? restrictive? hard to comment?
 
 Remember, you wrote something like the text below,  gave it to `JSON.parse()` and got 30 errors? one by one?
@@ -28,7 +26,7 @@ Remember, you wrote something like the text below,  gave it to `JSON.parse()` an
         "Bad value", truth,
         'single quote',
         /* multi-line comment */
-        "	tab	character	in	string	",
+        "    tab    character    in    string    ",
         "tab\   character\   in\  string\  ",
         "line\
         break"
@@ -36,10 +34,10 @@ Remember, you wrote something like the text below,  gave it to `JSON.parse()` an
     "Extra comma": true,
 }
 ```
+
 So, now you can use `jsof.parse()`, and everything is fine!
 
 ### Reason 2
-
 `JSON.stringify(obj, null, 2);`
 
 ```json
@@ -65,17 +63,16 @@ So, now you can use `jsof.parse()`, and everything is fine!
 ```
 
 ### Reason 3
-
 colors
 
 ### Reason 4
-
 References
 
 ### Reason 5
-
 no `eval()` no `Yaml`
 
+### Reason 6
+Better error messages.
 
 ## Use
 ### Node.js
