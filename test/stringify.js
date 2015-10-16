@@ -31,12 +31,14 @@ describe('#stringify', function () {
         it(source, function (done) {
             var res;
 
-            res = jsof.stringify(data[source].src, {nocolor: true});
+            res = jsof.stringify(data[source].src);
             expect(res).to.deep.equal(data[source].dst);
 
-            res = jsof.shift.stringify(data[source].src, {nocolor: true});
+            res = jsof.shift.stringify(data[source].src);
             expect(res).to.deep.equal(data[source].dst);
 
+            // console.log(JSON.stringify(res, null, 2));
+            // console.log(jsof.stringify(res));
             done();
         });
     });

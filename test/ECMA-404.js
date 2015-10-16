@@ -52,15 +52,20 @@ fs.readdir(
                         path.resolve(__dirname, './parse-this-too-shall-pass/', jsonFileName),
                         'utf8',
                         function (err1, text) {
+                            var res1, res2;
                             if (err1) { throw err1; }
                             if (false) {
                                 var orig;
                                 eval('orig = ' + text);
                                 expect(jsof.parse(text)).to.deep.equal(orig);
                             } else {
-                                var res1 = jsof.parse(text);
-                                var res2 = jsof.shift.parse(text);
+                                res1 = jsof.parse(text);
+                                res2 = jsof.shift.parse(text);
                                 expect(res1).to.deep.equal(res2);
+                                // console.log(text);
+                                // console.log(res1);
+                                // console.log(JSON.stringify(res1, null, 2));
+                                // console.log(jsof.stringify(res1));
                             }
                             done();
                         }
