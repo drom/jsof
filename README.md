@@ -1,5 +1,7 @@
 # JSOF (liberal JSON)
-[![NPM version](https://img.shields.io/npm/v/jsof.svg)](https://www.npmjs.org/package/jsof) [![Build Status](https://travis-ci.org/drom/jsof.svg?branch=master)](https://travis-ci.org/drom/jsof) [![Build status](https://ci.appveyor.com/api/projects/status/pcxe8l0w97jwfmil?svg=true)](https://ci.appveyor.com/project/drom/jsof)
+[![NPM version](https://img.shields.io/npm/v/jsof.svg)](https://www.npmjs.org/package/jsof)
+[![Build Status](https://travis-ci.org/drom/jsof.svg?branch=master)](https://travis-ci.org/drom/jsof)
+[![Build status](https://ci.appveyor.com/api/projects/status/pcxe8l0w97jwfmil?svg=true)](https://ci.appveyor.com/project/drom/jsof)
 
 Uses `esprima, escodegen` or `shift-{parser, codegen}` to parse and stringify an JavaScript values.
 
