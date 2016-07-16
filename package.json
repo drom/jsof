@@ -22,13 +22,13 @@
   "devDependencies": {
     "chai": "^3.5.0",
     "eslint": "^2.11.1",
-    "istanbul": "^0.4.3",
+    "istanbul": "^0.4.4",
     "mocha": "^2.5.3"
   },
   "dependencies": {
     "escodegen": "^1.8.0",
     "esprima": "^2.7.2",
-    "shift-codegen": "^3.0.0",
-    "shift-parser": "^3.0.5"
+    "shift-codegen": "^5.0.2",
+    "shift-parser": "^5.0.1"
   }
 }
