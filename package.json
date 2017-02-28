@@ -4,7 +4,9 @@
   "description": "liberal JSON",
   "main": "lib",
   "scripts": {
-    "test": "eslint lib/*.js && istanbul cover _mocha"
+    "test": "eslint lib/*.js && nyc --reporter=html --reporter=text mocha test",
+    "mocha": "mocha test",
+    "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "repository": {
     "type": "git",
@@ -21,14 +23,14 @@
   "homepage": "https://github.com/drom/jsof#readme",
   "devDependencies": {
     "chai": "^3.5.0",
-    "eslint": "^2.11.1",
-    "istanbul": "^0.4.4",
-    "mocha": "^2.5.3"
+    "eslint": "^2.13.1",
+    "mocha": "^2.5.3",
+    "nyc": "^10.1.2"
   },
   "dependencies": {
-    "escodegen": "^1.8.0",
-    "esprima": "^2.7.2",
+    "escodegen": "^1.8.1",
+    "esprima": "^2.7.3",
     "shift-codegen": "^5.0.2",
-    "shift-parser": "^5.0.1"
+    "shift-parser": "^5.0.2"
   }
 }
