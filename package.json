@@ -23,6 +23,7 @@
   "homepage": "https://github.com/drom/jsof#readme",
   "devDependencies": {
     "chai": "^3.5.0",
+    "coveralls": "^2.11.16",
     "eslint": "^2.13.1",
     "mocha": "^2.5.3",
     "nyc": "^10.1.2"
