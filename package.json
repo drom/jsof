@@ -6,8 +6,15 @@
   "scripts": {
     "test": "eslint lib/*.js && nyc --reporter=html --reporter=text mocha test",
     "mocha": "mocha test",
-    "coverage": "nyc report --reporter=text-lcov | coveralls"
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
+    "browserify": "browserify --standalone jsof lib/index1.js > build/jsof.js",
+    "prepublish": "npm run test && mkdir -p build && npm run browserify"
   },
+  "files": [
+    "build/jsof.js",
+    "lib/*"
+  ],
+  "unpkg": "build/jsof.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/drom/jsof.git"
@@ -22,10 +29,11 @@
   },
   "homepage": "https://github.com/drom/jsof#readme",
   "devDependencies": {
+    "browserify": "^16.2.2",
     "chai": "^3.5.0",
     "coveralls": "^2.11.16",
     "eslint": "^2.13.1",
-    "@drom/eslint-config": "^0.5.0",
+    "@drom/eslint-config": "^0.7.0",
     "mocha": "^2.5.3",
     "nyc": "^10.1.2"
   },
