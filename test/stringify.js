@@ -23,12 +23,8 @@ var data = {
 ]`
     },
     'function': {
-        src: function fn(a, b) {
-            return a + b;
-        },
-        dst: `'function fn(a, b) {
-            return a + b;
-        }'`
+        src: function fn(a, b) { return a + b; },
+        dst: '\'function fn(a, b) { return a + b; }\''
     }
 };
 
