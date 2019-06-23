@@ -16,13 +16,19 @@ var data = {
     },
     array: {
         src: [123, 456, null],
-        dst: '[\n  123,\n  456,\n  null\n]'
+        dst: `[
+  123,
+  456,
+  null
+]`
     },
     'function': {
         src: function fn(a, b) {
-            return b + c;
+            return a + b;
         },
-        dst: '\'function fn(a, b) {\n            return b + c;\n        }\''
+        dst: `'function fn(a, b) {
+            return a + b;
+        }'`
     }
 };
 
