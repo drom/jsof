@@ -29,19 +29,19 @@
   },
   "homepage": "https://github.com/drom/jsof#readme",
   "devDependencies": {
+    "@drom/eslint-config": "^0.10.0",
     "browserify": "^16.2.2",
     "chai": "^4.2.0",
     "coveralls": "^3.0.2",
-    "eslint": "^4.19.1",
-    "@drom/eslint-config": "^0.9.0",
-    "mocha": "^5.2.0",
-    "nyc": "^12.0.0"
+    "eslint": "^5.0.0",
+    "mocha": "^6.1.4",
+    "nyc": "^14.1.1"
   },
   "dependencies": {
     "escodegen": "^1.8.1",
     "esprima": "^4.0.1",
-    "shift-codegen": "^5.0.2",
-    "shift-parser": "^5.0.2"
+    "shift-codegen": "^6.0.0",
+    "shift-parser": "^7.0.0"
   },
   "eslintConfig": {
     "extends": "@drom/eslint-config/eslint4/node4"
