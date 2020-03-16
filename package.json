@@ -33,14 +33,14 @@
     "browserify": "^16.2.2",
     "chai": "^4.2.0",
     "coveralls": "^3.0.2",
-    "eslint": "^5.16.0",
-    "mocha": "^6.1.4",
-    "nyc": "^14.1.1"
+    "eslint": "^6.8.0",
+    "mocha": "^7.1.0",
+    "nyc": "^15.0.0"
   },
   "dependencies": {
     "escodegen": "^1.8.1",
     "esprima": "^4.0.1",
-    "shift-codegen": "^6.0.0",
+    "shift-codegen": "^7.0.0",
     "shift-parser": "^7.0.0"
   },
   "eslintConfig": {
