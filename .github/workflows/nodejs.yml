@@ -23,7 +23,7 @@ jobs:
         npm i
         npm test
         npm run coverage
-    - name: Coveralls GitHub Action
+    - name: Coveralls
       uses: coverallsapp/github-action@v1.0.1
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
