@@ -1,6 +1,6 @@
 # JSOF (liberal JSON)
 [![NPM version](https://img.shields.io/npm/v/jsof.svg)](https://www.npmjs.org/package/jsof)
-![Tests](https://github.com/drom/jsof/workflows/Tests/badge.svg)
+[![Tests](https://github.com/drom/jsof/workflows/Tests/badge.svg)](https://github.com/drom/jsof/actions)
 [![Coveralls](https://coveralls.io/repos/github/drom/jsof/badge.svg?branch=master)](https://coveralls.io/github/drom/jsof?branch=master)
 
 Uses `esprima, escodegen` or `shift-{parser, codegen}` to parse and stringify an JavaScript values.
