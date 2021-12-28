@@ -4,7 +4,7 @@
   "description": "liberal JSON",
   "main": "lib",
   "scripts": {
-    "test": "eslint lib/*.js && nyc --reporter=html --reporter=text mocha test",
+    "test": "eslint lib test && nyc --reporter=html --reporter=text mocha test",
     "mocha": "mocha test",
     "coverage": "nyc report --reporter=lcov",
     "browserify": "browserify --standalone jsof lib/index1.js > build/jsof.js",
@@ -45,6 +45,9 @@
     "shift-parser": "^7.0.0"
   },
   "eslintConfig": {
-    "extends": "@drom/eslint-config/eslint4/node4"
+    "extends": "@drom/eslint-config/eslint4/node8",
+    "parserOptions": {
+      "ecmaVersion": 2020
+    }
   }
 }
