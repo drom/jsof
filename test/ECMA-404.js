@@ -98,3 +98,5 @@ fs.readdir(
         });
     }
 );
+
+/* eslint-env mocha */
