@@ -9,7 +9,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [14, 16, 18, 20]
+        node-version: [26, 24, 22, 20]
         os: [ubuntu-latest, macOS-latest, windows-latest]
 
     steps:
