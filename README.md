@@ -3,41 +3,34 @@
 [![Tests](https://github.com/drom/jsof/workflows/Tests/badge.svg)](https://github.com/drom/jsof/actions)
 [![Coveralls](https://coveralls.io/repos/github/drom/jsof/badge.svg?branch=master)](https://coveralls.io/github/drom/jsof?branch=master)
 
-Uses `esprima, escodegen` or `shift-{parser, codegen}` to parse and stringify an JavaScript values.
+A tiny, **zero-dependency** parser and stringifier for liberal (JSON6-style) JavaScript values.
 
 ## Why?
 ### Reason 1
-Do you think, that JSON is a bit verbose? restrictive? hard to comment?
+Do you think that JSON is a bit verbose? restrictive? hard to comment?
 
-Remember, you wrote something like the text below,  gave it to `JSON.parse()` and got 30 errors? one by one?
+Remember, you wrote something like the text below, gave it to `JSON.parse()` and got errors, one by one?
 
-```json
+```js
 {
-    unquoted_key: "keys must be quoted",
-    a1: ["extra comma",],
-    a2: ["double extra comma",,],
+    unquoted_key: "keys need no quotes",
+    café_ключ: "unicode keys are fine",
+    trailing: ["comma", "ok",],
+    sparse: ["hole", , "ok"],   // -> ['hole', null, 'ok']
     // single line comment
-    "Illegal expression": 1 + 2,
-    "Illegal invocation": alert(),
-    "Numbers cannot have leading zeroes": 013,
-    "Numbers cannot be hex": 0x14,
-    a3: [
-        "Illegal backslash escape: \x15",
-        "Illegal backslash escape: \017",
-        [[[[[[[[[[[[[[[[[[[["Too deep"]]]]]]]]]]]]]]]]]]]],
-        "Bad value", truth,
-        'single quote',
-        /* multi-line comment */
-        "    tab    character    in    string    ",
-        "tab\   character\   in\  string\  ",
-        "line\
-        break"
-    ],
-    "Extra comma": true,
+    /* multi-line comment */
+    leadingDot: .5,
+    hex: 0x14,
+    big: 9007199254740993n,     // BigInt
+    inf: Infinity,
+    nan: NaN,
+    'single quoted': true,
+    "line\
+    continuation": "one string",
 }
 ```
 
-So, now you can use `jsof.parse()`, and everything is fine!
+So now you can use `jsof.parse()`, and everything is fine.
 
 ### Reason 2
 `JSON.stringify(obj, null, 2);`
@@ -65,16 +58,13 @@ So, now you can use `jsof.parse()`, and everything is fine!
 ```
 
 ### Reason 3
-colors
+Colors. `jsof.stringify(obj, {ansi: true})` returns an ANSI-colored string ready to print to a terminal.
 
 ### Reason 4
-References
+No `eval()`, no `Yaml`, no runtime dependencies. Input is parsed by a small hand-written JSON6 parser — arbitrary code is never executed.
 
 ### Reason 5
-no `eval()` no `Yaml`
-
-### Reason 6
-Better error messages.
+Better error messages: a `SyntaxError` carrying `line` and `column`.
 
 ## Use
 ### Node.js
@@ -84,29 +74,68 @@ npm i jsof --save
 ```
 
 ```js
-var jsof = require('jsof');
+const jsof = require('jsof');
 ```
 
+### Browser
+A prebuilt bundle is published to unpkg:
+
+```html
+<script src="https://unpkg.com/jsof"></script>
+<script>
+  jsof.parse('{a: 1}');
+</script>
+```
+
+## Grammar
+`jsof.parse()` accepts a superset of JSON:
+
+- `//` line and `/* */` block comments
+- unquoted object keys, including unicode identifiers
+- single- or double-quoted strings and keys
+- trailing commas, and sparse arrays (`[1, , 2]` → `[1, null, 2]`)
+- numbers: leading/trailing dot (`.5`, `5.`), hex (`0x1f`), `Infinity`,
+  `-Infinity`, `NaN`, and leading zeros (`013` → `13`)
+- **BigInt** literals (`42n`, `0xffn`)
+- `undefined`
+- string line continuations (a `\` before a newline) and `\xHH` escapes
+
 ## API
-### jsof.parse()
-### jsof.p()
-The `jsof.parse()` method parses a JS value string and returns a JavaScript value. Passes all 3 JSON **pass** tests. Also passes 18 of 33 JSON **fail** tests.
+### jsof.parse() / jsof.p()
+Parses a liberal JSON6 string and returns a JavaScript value.
 
-`value = jsof.parse(text)`
+`value = jsof.parse(text[, reviver])`
 
-### jsof.stringify()
-### jsof.s()
-The `jsof.stringify()` method converts a JavaScript value to a JS string.
+`reviver` works exactly like the second argument of `JSON.parse`. On invalid
+input a `SyntaxError` is thrown with `.line` and `.column` properties.
 
-`text = jsof.stringify(value)`
+### jsof.stringify() / jsof.s()
+Converts a JavaScript value to a compact liberal string.
 
-### jsof.shift.parse()
-### jsof.shift.p()
-The same as `jsof.parse()` but using `shift-*` tools.
+`text = jsof.stringify(value[, options])`
 
-### jsof.shift.stringify()
-### jsof.shift.s()
-The same as `jsof.stringify()` but using `shift-*` tools.
+By default keys are left unquoted when they match `^[0-9a-zA-Z_]+$` (otherwise
+single-quoted), strings use single quotes, arrays of same-typed scalars are
+printed inline, and `BigInt` values keep their `n` suffix.
+
+| option     | type              | effect                                                              |
+| ---------- | ----------------- | ------------------------------------------------------------------- |
+| `ansi`     | `boolean`         | Wrap tokens in ANSI color escapes for terminal output.              |
+| `legacy`   | `boolean`         | Strict-JSON-compatible output: double-quoted keys/strings, bare int for BigInt. |
+| `indent`   | `number \| string`| Indentation unit (spaces count or literal string). Default `2`.     |
+| `sortKeys` | `boolean`         | Sort object keys alphabetically.                                    |
+| `replacer` | `function \| array`| Like `JSON.stringify`: transform values or whitelist keys.         |
+
+```js
+jsof.stringify({a: [{b: 'string'}], c: 42});
+// {
+//   a: [{b: 'string'}],
+//   c: 42
+// }
+
+jsof.stringify({a: 1}, {legacy: true});      // {"a": 1}
+jsof.stringify({b: 1, a: 2}, {sortKeys: true, indent: 4});
+```
 
 ## Testing
 `npm test`
